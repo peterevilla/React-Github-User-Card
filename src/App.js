@@ -2,6 +2,9 @@ import React from "react";
 import "./App.css";
 import { Card, Icon, Image} from 'semantic-ui-react'
 import FollowersModal from './components/FollowersModal'
+import ReposModal from './components/ReposModal'
+import UserCard from './components/UserCard'
+import Form from './components/Form'
 
 
 
@@ -9,7 +12,8 @@ import FollowersModal from './components/FollowersModal'
 class App extends React.Component {
   state = {
     user: [],
-    followers:[]
+    followers:[],
+    repos:[]
   };
 
   componentDidMount() {
@@ -25,6 +29,12 @@ class App extends React.Component {
       .then(follow => {
         console.log('followers:', follow)
         this.setState({ followers: follow });
+        return fetch('https://api.github.com/users/peterevilla/repos')
+      })
+      .then(res => res.json())
+      .then(re => {
+        console.log('repos:', re)
+        this.setState({ repos: re });
       })
       .catch(err => console.error(err));
   }
@@ -36,20 +46,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Get Github User Card</h1>
-        <Card>
-        <Image src={this.state.user.avatar_url} />
-        <Card.Content>
-        <Card.Header>{this.state.user.name}</Card.Header>
-        <Card.Meta><a href={this.state.user.html_url}><Icon name='github'/> {this.state.user.login}</a></Card.Meta>
-        {/* {this.state.followers.map(ele => (
-          <ul key={ele.id}>
-            <li>{ele.login}</li>
-          </ul>
-        ))} */}
-        <FollowersModal user={this.state.user.login} followers={this.state.followers} />
-        </Card.Content>
-        </Card>
-        
+        <Form/>
+        <UserCard user={this.state.user} followers={this.state.followers} repos={this.state.repos} />
         
       </div>
     );
