@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image} from 'semantic-ui-react'
+import FollowersModal from './components/FollowersModal'
 
 
 
@@ -28,16 +29,6 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  // componentDidMount() {
-  //   fetch("https://api.github.com/users/peterevilla/followers")
-  //     .then(res => res.json())
-  //     .then(follows => {
-  //       console.log(follows);
-  //       this.setState({ followers: follows });
-  //       console.log(this.state.followers);
-  //     })
-  //     .catch(err => console.error(err));
-  // }
 
 
 
@@ -50,13 +41,15 @@ class App extends React.Component {
         <Card.Content>
         <Card.Header>{this.state.user.name}</Card.Header>
         <Card.Meta><a href={this.state.user.html_url}><Icon name='github'/> {this.state.user.login}</a></Card.Meta>
-        {this.state.followers.map(ele => (
-          <ul>
+        {/* {this.state.followers.map(ele => (
+          <ul key={ele.id}>
             <li>{ele.login}</li>
           </ul>
-        ))}
+        ))} */}
+        <FollowersModal user={this.state.user.login} followers={this.state.followers} />
         </Card.Content>
         </Card>
+        
         
       </div>
     );

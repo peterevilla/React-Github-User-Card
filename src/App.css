@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+.avatar {
+
+  height: 30px;
+  width: auto;
+}
