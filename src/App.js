@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from 'axios'
 import UserCard from './components/UserCard'
-import FormSearch from './components/FormSearch'
+import FormSearch from './components/FormSearchSearch'
 
 
 
