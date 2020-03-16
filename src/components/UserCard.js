@@ -17,7 +17,8 @@ class UserCard extends React.Component {
     render() {
 
         return(
-            <Card className='card'>
+            <div className='card'> 
+            <Card >
             <Image src={this.props.user.avatar_url} />
             <Card.Content>
             <Card.Header>{this.props.user.name}</Card.Header>
@@ -30,6 +31,7 @@ class UserCard extends React.Component {
             <ReposModal user={this.props.user.login} repos={this.props.repos} />
             </Card.Content>
             </Card>
+            </div>
         )
     }
 
