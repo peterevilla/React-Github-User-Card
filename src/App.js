@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from 'axios'
 import UserCard from './components/UserCard'
-import Form from './components/Form'
+import FormSearch from './components/FormSearch'
 
 
 
@@ -82,7 +82,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <h1>Get Github User Card</h1>
-          <Form handleQuery={this.handleQuery} onSearch={this.onSearch} />
+          <FormSearch handleQuery={this.handleQuery} onSearch={this.onSearch} />
           {this.state.user.length !== 0 && (<UserCard user={this.state.user} followers={this.state.followers} repos={this.state.repos} />)}
 
         </div>

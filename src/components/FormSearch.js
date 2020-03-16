@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 
 
@@ -6,7 +7,7 @@ import React from "react";
 
 
 
-class Form extends React.Component {
+class FormSearch extends React.Component {
         constructor(props) {
             super(props)
             this.state = {
@@ -42,15 +43,17 @@ class Form extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <Form className='form' onSubmit={this.handleSubmit}>
+                <Form.Field>
                     <label>
                         <input type='text' name='query' placeholder='search github username' value={this.state.query} onChange={this.handleChanges}></input>
                     </label>
+                </Form.Field>
                     <label>
-                        <button>search</button>
+                        <Button type='submit'>search</Button>
                     </label>
 
-                </form>
+                </Form>
             </div>
         )
     }
@@ -58,4 +61,4 @@ class Form extends React.Component {
 
 }
 
-export default Form;
+export default FormSearch;
