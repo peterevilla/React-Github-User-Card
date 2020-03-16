@@ -24,7 +24,7 @@ export default class ReposModal extends Component {
         <Modal.Content>
         {this.props.repos.map(ele => (
           <div key={ele.id}>
-            <a href={ele.html_url}>{ele.full_name}</a>
+            <a href={ele.html_url}>{ele.name}</a>
           </div>
         ))}
         </Modal.Content>

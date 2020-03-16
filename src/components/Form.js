@@ -7,31 +7,42 @@ import React from "react";
 
 
 class Form extends React.Component {
-
-   
-        state = {
-            query: ''
+        constructor(props) {
+            super(props)
+            this.state = {
+                query: ''
+            }
         }
 
-        
+    
 
 
-   
+
+
+
 
     handleChanges = e => {
         this.setState({ ...this.state, query: e.target.value });
-        // this.props.handleQuery(this.state.query)
-        
-      };
+        console.log(this.state.query)
+
+    };
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.handleQuery(this.state.query)
+        this.props.onSearch()
+        console.log('query', this.state.query)
+        this.setState({ query: ''})
+
+    }
 
 
- 
 
     render() {
 
-        return(
-           <div>
-               <form>
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         <input type='text' name='query' placeholder='search github username' value={this.state.query} onChange={this.handleChanges}></input>
                     </label>
@@ -39,8 +50,8 @@ class Form extends React.Component {
                         <button>search</button>
                     </label>
 
-               </form>
-           </div>
+                </form>
+            </div>
         )
     }
 

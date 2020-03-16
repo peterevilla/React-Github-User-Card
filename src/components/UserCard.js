@@ -8,32 +8,27 @@ import ReposModal from './ReposModal'
 
 
 
-class UserCard extends React.Component {
+const UserCard = props => {
 
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+    
 
         return(
             <div className='card'> 
             <Card >
-            <Image src={this.props.user.avatar_url} />
+            <Image src={props.user.avatar_url} />
             <Card.Content>
-            <Card.Header>{this.props.user.name}</Card.Header>
-            <Card.Meta><a href={this.props.user.html_url}><Icon name='github'/> {this.props.user.login}</a></Card.Meta>
+            <Card.Header>{props.user.name}</Card.Header>
+            <Card.Meta><a href={props.user.html_url}><Icon name='github'/> {props.user.login}</a></Card.Meta>
             <Card.Description>
-            <p>Location: {this.props.user.location}</p>
-            <p>Bio: {this.props.user.bio}</p>
+            <p>Location: {props.user.location}</p>
+            <p>Bio: {props.user.bio}</p>
             </Card.Description>
-            <FollowersModal user={this.props.user.login} followers={this.props.followers} />
-            <ReposModal user={this.props.user.login} repos={this.props.repos} />
+            <FollowersModal user={props.user.login} followers={props.followers} />
+            {/* <ReposModal user={props.user.login} repos={props.repos} /> */}
             </Card.Content>
             </Card>
             </div>
         )
-    }
 
 
 }
