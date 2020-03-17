@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import axios from 'axios'
+
 import UserCard from './components/UserCard'
 import FormSearch from './components/FormSearch'
 
@@ -56,12 +56,12 @@ class App extends React.Component {
         this.setState({ followers: follow });
       
       })
-      fetch(`https://api.github.com/users/${this.state.search}/repos`)
-      .then(res => res.json())
-      .then(re => {
-        console.log('repos:', re)
-        this.setState({ repos: re });
-      })
+      // fetch(`https://api.github.com/users/${this.state.search}/repos`)
+      // .then(res => res.json())
+      // .then(re => {
+      //   console.log('repos:', re)
+      //   this.setState({ repos: re });
+      // })
       .catch(err => console.error(err));
   }
 
