@@ -18,7 +18,7 @@ class App extends React.Component {
   setSearchTerm = user => {
 
     this.setState({ search: user });
-    console.log(this.search)
+    console.log(this.state.search)
 
   };
 

@@ -10,16 +10,16 @@ import { Button, Form } from 'semantic-ui-react'
 class FormSearch extends React.Component {
     constructor(props) {
         super(props)
-
-    
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
 
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(e.target.value)
-        this.props.setSearchTerm(e.target.value)
+        var val = this.val.value
+        console.log(val)
+        this.props.setSearchTerm(val)
         // this.props.onSearch()
 
 
@@ -34,7 +34,7 @@ class FormSearch extends React.Component {
                 <Form className='form' onSubmit={this.handleSubmit}>
                     <Form.Field>
                         <label>
-                            <input type='text' placeholder='search github username'  ></input>
+                            <input type='text' placeholder='search github username' ref={(c) => this.val = c}  ></input>
                         </label>
                     </Form.Field>
                     <label>
