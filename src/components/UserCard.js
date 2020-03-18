@@ -24,7 +24,7 @@ const UserCard = props => {
             <p>Bio: {props.user.bio}</p>
             </Card.Description>
             <FollowersModal user={props.user.login} followers={props.followers} />
-            {/* <ReposModal user={props.user.login} repos={props.repos} /> */}
+            <ReposModal user={props.user.login} repos={props.repos} />
             </Card.Content>
             </Card>
             </div>

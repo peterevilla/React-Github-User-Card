@@ -17,10 +17,11 @@ class FormSearch extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        console.log(this.val)
         var val = this.val.value
         console.log(val)
-        this.props.setSearchTerm(val)
-        val = ''
+        this.props.onSearch(val)
+        
         // this.props.onSearch()
 
 
