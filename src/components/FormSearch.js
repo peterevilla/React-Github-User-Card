@@ -21,8 +21,7 @@ class FormSearch extends React.Component {
         var val = this.val.value
         console.log(val)
         this.props.onSearch(val)
-    
-
+        
     }
 
 
@@ -34,7 +33,7 @@ class FormSearch extends React.Component {
                 <Form className='form' onSubmit={this.handleSubmit}>
                     <Form.Field>
                         <label>
-                            <input type='text' placeholder='search github username' ref={(c) => this.val = c} onfocus="this.value=''" ></input>
+                            <input type='text' placeholder='search github username' ref={(c) => this.val = c} ></input>
                         </label>
                     </Form.Field>
                     <label>
