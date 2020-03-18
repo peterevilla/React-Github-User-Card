@@ -57,7 +57,6 @@ class App extends React.Component {
             search: ''
         
           });
-
           console.log('Did Mount')
           fetch(`https://api.github.com/users/${this.state.search}`)
             .then(res => res.json())
@@ -79,8 +78,8 @@ class App extends React.Component {
               this.setState({ repos: re });
             })
             .catch(err => console.error(err));
-        
         }
+       
       }
 
     render() {

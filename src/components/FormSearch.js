@@ -17,7 +17,7 @@ class FormSearch extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        var val = this.val.value
+        var val = this.val.value;
         console.log(val)
         this.props.setSearchTerm(val)
         // this.props.onSearch()
